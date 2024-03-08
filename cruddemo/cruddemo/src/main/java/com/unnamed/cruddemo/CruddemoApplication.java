@@ -20,18 +20,18 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner->{
-			//System.out.println("Hello World!!");
-			//CREATE
-//			createStudent(studentDAO);
+			System.out.println("Hello World!!");
+			CREATE
+			createStudent(studentDAO);
 
 			//READ 1
 			//readStudent(studentDAO, 6);
 
 			// READ Multiple
-			List<StudentIdApellidoDTO> aux=studentDAO.getAllStudents();
+/*			List<StudentIdApellidoDTO> aux=studentDAO.getAllStudents();
 			for (var studentItem:aux) {
 				System.out.println("Student:  "+ studentItem.getId()+" - "+ studentItem.getApellido());
-			}
+			}*/
 
 			// READ by last name
 //			var aux2=studentDAO.findByLastName("Doe");
@@ -76,6 +76,17 @@ public class CruddemoApplication {
 
 		//save the student object
 		System.out.println("Saving student object...");
+		studentDAO.save(tempStudent);
+		Student tempStudent=new Student("luis","mora","asdfasdfpepo@gmail.com");
+		studentDAO.save(tempStudent);
+
+		Student tempStudent=new Student("epep","ddd","asdfasdfpepo@gmail.com");
+		studentDAO.save(tempStudent);
+
+		Student tempStudent=new Student("lso","cccv","asdfasdfpepo@gmail.com");
+		studentDAO.save(tempStudent);
+
+		Student tempStudent=new Student("asfd","bbb","asdfasdfpepo@gmail.com");
 		studentDAO.save(tempStudent);
 
 		// display id of the saved student
